@@ -1,0 +1,5 @@
+log_level        :info
+log_location     STDOUT
+chef_server_url  '${chef_server_url}'
+validation_key         "/etc/chef/${validator_pem}"
+validation_client_name '${validation_client_name}'

@@ -1,0 +1,12 @@
+#!/bin/bash
+# Download and install Python PIP installer
+curl -L https://bootstrap.pypa.io/get-pip.py | python
+# Install AWS command line tools
+pip install awscli
+# Download and install Chef client
+curl -L https://chef.io/chef/install.sh | bash -s -- -v ${chef_version}
+# Copy configuration files from S3
+mkdir /etc/chef
+aws s3 cp s3://${s3_bucket} /etc/chef --recursive
+# Run Chef client with first_run configuration file
+chef-client -j /etc/chef/first_run.json
