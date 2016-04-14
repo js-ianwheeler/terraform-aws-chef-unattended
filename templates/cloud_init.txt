@@ -9,4 +9,4 @@ curl -L https://chef.io/chef/install.sh | bash -s -- -v ${chef_version}
 mkdir /etc/chef
 aws s3 cp s3://${s3_bucket} /etc/chef --recursive
 # Run Chef client with first_run configuration file
-chef-client -j /etc/chef/first_run.json
+chef-client -j /etc/chef/${server_name}-first_run.json

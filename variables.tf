@@ -17,7 +17,7 @@ variable "region" {
 }
 
 # This is the EC2 Key Pair that will provide SSH access to your instance
-variable "key_name" {
+variable "ssh_key_name" {
   default = "ssh_access"
 }
 
@@ -55,11 +55,4 @@ variable "validation_key_location" {
 # This is the Chef validator client name
 variable "validation_client_name" {
   default = "example-validator"
-}
-
-# This variable specifies a Chef role for the EC2 instance - the
-# unattended_bootstrap role needs to be created on your Chef Server and should
-# be configured with the desired Run List
-variable "run_list" {
-  default = "role[unattended_bootstrap]"
 }
