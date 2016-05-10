@@ -10,3 +10,5 @@ mkdir /etc/chef
 aws s3 cp s3://${s3_bucket} /etc/chef --recursive
 # Run Chef client with first_run configuration file
 chef-client -j /etc/chef/${server_name}-first_run.json
+# Removes configuration files
+rm -rf /etc/chef
